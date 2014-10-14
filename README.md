@@ -6,7 +6,7 @@ A Dockerfile repository to create an image with an Apache HTTP Server redirectin
 Building the base image
 -----------------------
 
-To create the base image `dezoito18/apache-http-tomcat`, execute the following command on the apache-http-tomcat folder:
+To create the base image `dezoito18/apache-http-tomcat`, execute the following command on the docker-apache-http-tomcat folder:
 
 	docker build -t dezoito18/apache-http-tomcat .
 
