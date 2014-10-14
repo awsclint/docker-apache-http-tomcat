@@ -6,9 +6,9 @@ A Dockerfile repository to create an image with an Apache HTTP Server redirectin
 Building the base image
 -----------------------
 
-To create the base image `dezoito/apache-http-tomcat`, execute the following command on the apache-http-tomcat folder:
+To create the base image `dezoito18/apache-http-tomcat`, execute the following command on the apache-http-tomcat folder:
 
-	docker build -t dezoito/apache-http-tomcat .
+	docker build -t dezoito18/apache-http-tomcat .
 
 
 Running your docker image
@@ -16,7 +16,7 @@ Running your docker image
 
 Start your image binding the external ports 80 in all interfaces to your container:
 
-	docker run -d -p 80:80 -e TOMCAT_PASS="password" dezoito/apache-http-tomcat
+	docker run -d -p 80:80 -e TOMCAT_PASS="password" dezoito18/apache-http-tomcat
 
 Test your deployment by accessing Tomcat Manager application on:
 

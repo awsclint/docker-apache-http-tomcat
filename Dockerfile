@@ -1,5 +1,5 @@
 FROM java:8
-MAINTAINER Cornel Eberle <cornel.eberle@namics.com>
+MAINTAINER Cornel Eberle <cornel.eberle@gmail.com>
 
 ###########################
 # Apache HTTP
