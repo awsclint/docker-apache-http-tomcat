@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Start SSH Daemon
+/usr/sbin/sshd
+
 # Start Apache in background
 source /etc/apache2/envvars
 apache2 -k start

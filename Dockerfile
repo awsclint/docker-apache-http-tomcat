@@ -41,15 +41,22 @@ RUN rm -rf /tomcat/webapps/docs
 RUN rm -rf /tomcat/webapps/examples
 RUN rm -rf /tomcat/webapps/host-manager
 
-###########################
-# Configure
-
 RUN sed -i "s/workers.tomcat_home.*/workers.tomcat_home=\/tomcat/g" /etc/libapache2-mod-jk/workers.properties
 RUN sed -i "s/workers.java_home.*/workers.java_home=\/usr\/lib\/jvm\/java-8-openjdk-amd64/g" /etc/libapache2-mod-jk/workers.properties
 
 RUN sed -i '1a\
-	JkMount \/* ajp13_worker' /etc/apache2/sites-available/000-default.conf
+    JkMount \/* ajp13_worker' /etc/apache2/sites-available/000-default.conf
 RUN sed -i "s@DocumentRoot.*@DocumentRoot /tomcat/webapps@g" /etc/apache2/sites-available/000-default.conf
+
+###########################
+# SSH
+
+RUN apt-get update && apt-get install -y openssh-server
+RUN mkdir /var/run/sshd
+RUN echo 'root:password' | chpasswd
+RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+
+EXPOSE 22
 
 ###########################
 # Scripts
